@@ -1,193 +1,125 @@
-# we will create a producer coroutine that will generate ten random numbers 
-# and put them on the queue. We will also create a consumer coroutine 
+# we will create a producer coroutine that will generate ten random numbers
+# and put them on the queue. We will also create a consumer coroutine
 # that will get numbers from the queue and report their values.
 
-# {time.ctime()} Consumer Running
-# {time.ctime()} Producer Running
-# {time.ctime()} Producer Running
-# {time.ctime()} Producer Running
-# {time.ctime()} Producer Running
-# {time.ctime()} Producer Running
-# {time.ctime()} Producer Running
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:42 2023 > got 0.2990836200966219
-# {time.ctime()} Producer:Done
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:43 2023 > got 0.42426788724465014
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:43 2023 > got 0.43178255473492533
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:44 2023 > got 0.4326731085852714
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:44 2023 > got 0.7647313669078647
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:45 2023 > got 0.9053437299889892
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:46 2023 > got 0.37536661156719053
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:46 2023 > got 0.5450051742728897
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:47 2023 > got 0.7351538046430857
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:47 2023 > got 0.09146038062632023
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:48 2023 > got 0.7912681199641328
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:48 2023 > got 0.020570006581942746
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:48 2023 > got 0.5543096541957684
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:49 2023 > got 0.43528891869364106
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:49 2023 > got 0.991061661380886
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:50 2023 > got 0.9149743096907466
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:51 2023 > got 0.5763238379263176
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:52 2023 > got 0.665466190630158
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:53 2023 > got 0.6197286514035242
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:53 2023 > got 0.9885778873859614
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:54 2023 > got 0.998180705273892
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:55 2023 > got 0.1473129766900857
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:55 2023 > got 0.9599391506165922
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:56 2023 > got 0.32946004466535794
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:57 2023 > got 0.10762693840520521
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:57 2023 > got 0.8324594972060795
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:58 2023 > got 0.038579496298373095
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:58 2023 > got 0.7290426241525505
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:58 2023 > got 0.30971593776185247
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:59 2023 > got 0.5394682448433754
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:40:59 2023 > got 0.41037968084744114
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:00 2023 > got 0.5530935349939822
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:00 2023 > got 0.6542483029669937
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:01 2023 > got 0.5492176166323167
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:02 2023 > got 0.5675407246725913
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:02 2023 > got 0.664577028915714
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:03 2023 > got 0.32412788219169597
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:03 2023 > got 0.9260950680707455
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:04 2023 > got 0.7637592608018587
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:05 2023 > got 0.820691602335835
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:06 2023 > got 0.6199672187202315
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:06 2023 > got 0.9649724589393138
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:07 2023 > got 0.9533191970301588
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:08 2023 > got 0.8268036522854384
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:09 2023 > got 0.15468448025716808
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:09 2023 > got 0.5423214760069298
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:10 2023 > got 0.41263498959678846
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:10 2023 > got 0.24026357580240143
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:10 2023 > got 0.15692501545167847
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:11 2023 > got 0.45210312052778545
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:11 2023 > got 0.4185866145984317
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:11 2023 > got 0.17108745172263762
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:12 2023 > got 0.20985841754731183
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:12 2023 > got 0.1091490829789864
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:12 2023 > got 0.5819017496662037
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:13 2023 > got 0.5351302855823233
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:13 2023 > got 0.5883623094492358
-# Wed Aug 23 14:41:13 2023 Producer: Done
-# Wed Aug 23 14:41:14 2023 > got 0.8109913866694286
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:15 2023 > got None
-# Wed Aug 23 14:41:15 2023 > got 0.5667454879150585
-# Wed Aug 23 14:41:15 2023 Producer: Done
-# Wed Aug 23 14:41:15 2023 Producer: Done
-# Wed Aug 23 14:41:15 2023 > got None
-# Wed Aug 23 14:41:15 2023 > got None
-# {time.ctime()} Producer:Done
-# Wed Aug 23 14:41:15 2023 Producer: Done
-# Wed Aug 23 14:41:15 2023 > got 0.2951653747671251
-# Wed Aug 23 14:41:15 2023 Producer: Done
-# Wed Aug 23 14:41:15 2023 > got None
-# Wed Aug 23 14:41:15 2023 > got None
-# Wed Aug 23 14:41:15 2023 Producer: Done
-# Wed Aug 23 14:41:15 2023 > got None
+
+# Wed Aug 23 15:05:16 2023 Consumer: Running
+# Wed Aug 23 15:05:16 2023 Producer: Running
+# Wed Aug 23 15:05:16 2023 Producer: Running
+# Wed Aug 23 15:05:16 2023 Producer: Running
+# Wed Aug 23 15:05:16 2023 Producer: Running
+# Wed Aug 23 15:05:16 2023 Producer: Running
+# Wed Aug 23 15:05:16 2023 > got 0.8668196892572753
+# Wed Aug 23 15:05:17 2023 > got 0.36008538145113556
+# Wed Aug 23 15:05:17 2023 > got 0.7123505499534486
+# Wed Aug 23 15:05:18 2023 > got 0.7135086267771602
+# Wed Aug 23 15:05:19 2023 > got 0.16703242414480202
+# Wed Aug 23 15:05:19 2023 > got 0.16424570013515294
+# Wed Aug 23 15:05:19 2023 > got 0.0723915698340949
+# Wed Aug 23 15:05:19 2023 > got 0.562979863582528
+# Wed Aug 23 15:05:20 2023 > got 0.5700192469795254
+# Wed Aug 23 15:05:20 2023 > got 0.37450764640504663
+# Wed Aug 23 15:05:21 2023 > got 0.3389277349167277
+# Wed Aug 23 15:05:21 2023 > got 0.7932903037753077
+# Wed Aug 23 15:05:22 2023 > got 0.7584108351760707
+# Wed Aug 23 15:05:23 2023 > got 0.06350880856643504
+# Wed Aug 23 15:05:23 2023 > got 0.864620913927457
+# Wed Aug 23 15:05:23 2023 > got 0.15067013559940468
+# Wed Aug 23 15:05:24 2023 > got 0.20547972016943827
+# Wed Aug 23 15:05:24 2023 > got 0.6123316276573629
+# Wed Aug 23 15:05:24 2023 > got 0.8031860035116117
+# Wed Aug 23 15:05:25 2023 > got 0.5270237493485245
+# Wed Aug 23 15:05:26 2023 > got 0.04833566498334463
+# Wed Aug 23 15:05:26 2023 > got 0.2018248476562211
+# Wed Aug 23 15:05:26 2023 > got 0.03290136912333963
+# Wed Aug 23 15:05:26 2023 > got 0.14941352349912596
+# Wed Aug 23 15:05:26 2023 > got 0.833702515976745
+# Wed Aug 23 15:05:27 2023 > got 0.7444462585618168
+# Wed Aug 23 15:05:28 2023 > got 0.27495454568885
+# Wed Aug 23 15:05:28 2023 > got 0.6378124624335483
+# Wed Aug 23 15:05:29 2023 > got 0.19359745696662511
+# Wed Aug 23 15:05:29 2023 > got 0.30233573754728205
+# Wed Aug 23 15:05:29 2023 > got 0.5342320083996165
+# Wed Aug 23 15:05:30 2023 > got 0.01083373999275028
+# Wed Aug 23 15:05:30 2023 > got 0.12217668440388507
+# Wed Aug 23 15:05:30 2023 > got 0.09078729055583756
+# Wed Aug 23 15:05:30 2023 > got 0.5444034396135315
+# Wed Aug 23 15:05:31 2023 > got 0.06032885091932416
+# Wed Aug 23 15:05:31 2023 Producer 1: Done
+# Wed Aug 23 15:05:31 2023 > got 0.614689570946161
+# Wed Aug 23 15:05:31 2023 > got 0.11754774691329084
+# Wed Aug 23 15:05:31 2023 > got 0.49724938168524424
+# Wed Aug 23 15:05:32 2023 > got 0.3990519454290299
+# Wed Aug 23 15:05:32 2023 > got 0.2831467357958095
+# Wed Aug 23 15:05:33 2023 > got 0.1079248281044064
+# Wed Aug 23 15:05:33 2023 > got 0.7862399141115263
+# Wed Aug 23 15:05:34 2023 > got 0.32113424662112977
+# Wed Aug 23 15:05:34 2023 > got 0.8152061676435766
+# Wed Aug 23 15:05:34 2023 Producer 3: Done
+# Wed Aug 23 15:05:35 2023 > got 0.6775484491483098
+# Wed Aug 23 15:05:35 2023 Producer 4: Done
+# Wed Aug 23 15:05:35 2023 > got 0.3041839428989156
+# Wed Aug 23 15:05:36 2023 > got 0.3238076327596905
+# Wed Aug 23 15:05:36 2023 Producer 5: Done
+# Wed Aug 23 15:05:36 2023 > got 0.4762607449722839
+# Wed Aug 23 15:05:37 2023 > got 0.3824756634791623
+
+
+
 from random import random
 import asyncio
 import time
 
-#corotine ti generate work
-async def producer(queue): 
-    print('{time.ctime()} Producer Running')
-    #genelate worl
-    for i in range(10):          
-        #generate a value
-        value = random()
-        #block to simulate work
-        await asyncio.sleep(value)
-        #add to the queue
-        await queue.put(value)
-        print('{time.ctime()} Producer:Done')
-    #send an all done signal
-    await queue.put(None)
-    print(f'{time.ctime()} Producer: Done')
-#corotine to consume work
-async def consumer(queue):
-    print('{time.ctime()} Consumer Running')
-     #consume work
-    while True:
-         #get a unit of work
-         item = await queue.get()
-         #report
-         print(f"{time.ctime()} > got {item}")
-         #block whilr precessing
+# coroutine to generate work
 
-         if item :
-             await asyncio.sleep(item)
-        #mark the task as done
-         queue.task_done()
-         
-#entry point corotine
+
+async def producer(queue,id):
+    print(f"{time.ctime()} Producer: Running")
+    # generate work
+    for i in range(10):
+        # generate work
+        value = random()
+        # block to simulate work
+        await asyncio.sleep((id+1) * 0.1)
+        # add to the queue
+        await queue.put(value)
+        # print(f'{time.ctime()} Producer: put {value}')
+    print(f"{time.ctime()} Producer {id+1}: Done")
+
+# coroutine to consume work
+
+
+async def consumer(queue):
+    print(f"{time.ctime()} Consumer: Running")
+    # consume work
+    while True:
+
+        # get a unit of work without blocking
+
+        item = await queue.get()
+        # report
+        print(f"{time.ctime()} > got {item}")
+
+        # check for stop signal
+        if item:
+            await asyncio.sleep(item)
+
+        queue.task_done()
+
+
+# entry point corotine
 async def main():
-    #creat the shared queue
+    # create the shared queue
     queue = asyncio.Queue(2)
-    #start tje consumer
+    # start the consumer
     _ = asyncio.create_task(consumer(queue))
-    producers = [producer(queue) for _ in range(6)]
-    #run and wait for the producers to finiched
-   
+    # start the producer and wait for it to finish
+    producers = [producer(queue,i) for i in range(5)]
+
     await asyncio.gather(*producers)
-    #wait for all item to be processd
+    # wait for all items to be processed
     await queue.join()
 
-#start the asyncuo programe
+# start the asyncio program
 asyncio.run(main())
+
